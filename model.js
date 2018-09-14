@@ -23,8 +23,19 @@ class Employe {
     });
   };
   
-  static addEmployes(name,position,username,password){
-    
+  static addEmploye(name,position,username,password,callback){
+    fs.readFile('employes.json','utf8',(err,dataString) => {
+      let employes = JSON.parse(dataString);
+      let newEmploye = new Employe(name,position,username,password)
+      employes.push(newEmploye)
+      let output = JSON.stringify(employes)
+      fs.writeFile('employes.json',output,'utf8',(err)=>{
+        if(err){
+          
+        }
+        callback(JSON.stringify(newEmploye),employes.length)
+      });
+    }); 
   }
   
   
