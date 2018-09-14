@@ -35,6 +35,12 @@ class Controller {
         })
     }
 
+    static logout(){
+        employes.logout((callback) => {
+            view.display(callback)
+        })
+    }
+
     
 }
 

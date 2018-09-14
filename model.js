@@ -90,6 +90,26 @@ class Employe {
     }); 
   }
 
+  static logout(callback){
+    fs.readFile('login.json','utf8',(err,dataString) => {
+      let login = JSON.parse(dataString);
+      
+      login.name = null
+      login.position = null
+      login.username = null
+      login.password = null
+
+      let output = JSON.stringify(login,null,2)
+
+      fs.writeFile('login.json',output,'utf8',(err)=>{
+        if(err){
+
+        }
+        callback(`you've been logged out successfully`)
+      })
+    });
+  }
+
 
 };
 
