@@ -28,5 +28,15 @@
       "pilek",
       "demam"
     ]
+  },
+  {
+    "id": 4,
+    "name": "andre",
+    "diagnosis": [
+      "batuk",
+      "malas",
+      "panas",
+      "dingin"
+    ]
   }
 ]

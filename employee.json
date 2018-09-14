@@ -26,5 +26,12 @@
     "username": "sam",
     "password": "123456",
     "position": "admin"
+  },
+  {
+    "id": 5,
+    "name": "nama",
+    "username": "pass",
+    "password": "posit",
+    "position": "username"
   }
 ]
