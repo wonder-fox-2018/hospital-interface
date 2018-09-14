@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Lebron",
+    "diagnosed": "Cancer"
+  },
+  {
+    "id": 2,
+    "name": "Kerbau",
+    "diagnosed": "Sakit Perut"
+  },
+  {
+    "id": 3,
+    "name": "Jerapah",
+    "diagnosed": "Diare"
+  }
+]
