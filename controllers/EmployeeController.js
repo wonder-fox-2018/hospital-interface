@@ -1,4 +1,5 @@
 const EmployeeModel = require('../models/EmployeeModel')
+const PatientModel = require('../models/PatientModel')
 const View = require('../views/View')
 class EmployeeController {
     constructor(){        
@@ -32,6 +33,31 @@ class EmployeeController {
             })
             View.displayLogin(usr.username)
         })
+    }
+
+    static logout(){
+        EmployeeModel.witeSession(null, (err, data) => {
+            View.displayLogout()
+        })
+        
+    }
+
+    static addPatient(patient, disease){
+       EmployeeModel.getSession((err, data) => {
+           if (data.length === 0){
+               console.log(data)
+              View.displayAddPatient('Please Login First')
+           }else{
+               if (data[0].position != 'doktor'){
+                View.displayAddPatient('tidak memiliki akses untuk add patient')
+               }else{
+                    PatientModel.insertPatient(patient, disease, (err, data) => {
+                        console.log(data)
+                    })
+               }
+               
+           }
+       })
     }
 
 }

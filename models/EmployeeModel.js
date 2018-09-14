@@ -15,7 +15,13 @@ class EmployeeModel {
     })
   }
 
-  static write() {}
+  
+
+  static readSession(callback) {
+    fs.readFile('./session.json','utf-8', (err, data) => {
+      callback(err, data)
+    })
+  }
 
   static getLastId(cb){
     this.readFile((err, data) =>{
@@ -61,11 +67,30 @@ class EmployeeModel {
   }
 
   static witeSession(username, callback){
-    fs.writeFile('session.json', JSON.stringify([username], null, 2), (err, data) => {
-      if (err) throw err
-    })
-    callback()
+    if (username && username !== ''){
+      fs.writeFile('session.json', JSON.stringify([username], null, 2), (err, data) => {
+        if (err) throw err
+      })
+      callback()
+    }else{
+      fs.writeFile('session.json', JSON.stringify([], null, 2), (err, data) => {
+        if (err) throw err
+      })
+      callback()
+    }
+    
   }
+
+  static getSession(callback){
+    this.readSession((err, data) => {
+      let session = JSON.parse(data)
+      callback(err, session)
+    })     
+  }
+
+  
+
+
 }
 
 
