@@ -1,0 +1,7 @@
+[
+    {
+        "id": 1,
+        "nama": "daniel",
+        "diagnosis": ["batuk", "flu", "pilek", "demam"]
+    }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "hadinw",
+    "username": "hadinww",
+    "password": "123456",
+    "position": "doktor"
+  },
+  {
+    "id": 2,
+    "name": "messa",
+    "username": "deum",
+    "password": "123456",
+    "position": "doktor"
+  },
+  {
+    "id": 3,
+    "name": "newName",
+    "username": "usern",
+    "password": "pass",
+    "position": "newPos"
+  },
+  {
+    "id": 4,
+    "name": "sam",
+    "username": "sam",
+    "password": "123456",
+    "position": "admin"
+  }
+]
