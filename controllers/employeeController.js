@@ -22,12 +22,17 @@ class ControllerEmployee {
 
     static login(username, password) {
        Employee.readFile(function(result){
+           let found=false
            for ( var i = 0; i < result.length; i++) {
                if ( result[i].username === username && result[i].password === password) {
+                   found=true;
                    Employee.login(username, password,function(endResult){
                        View.showList(endResult)
                    })
                }
+           }
+           if (found===false){
+               View.login()
            }
        })
     }
@@ -41,7 +46,10 @@ class ControllerEmployee {
 }
 
 
-// ControllerEmployee.register('sapi','sapisuper','dokter hewan')
+ControllerEmployee.register('sapi','sapisuper','dokter')
+// ControllerEmployee.register('kuda', 'kudaterbang', 'dokter')
+// ControllerEmployee.register('kecoa', 'kecoarayap', 'ob')
+// ControllerEmployee.register('laler', 'lalatx', 'admin')
 
 module.exports = ControllerEmployee
 

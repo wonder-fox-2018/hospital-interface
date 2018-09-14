@@ -5,6 +5,9 @@ class View {
     static showList(str) {
         console.log(str)
     }
+    static login() {
+        console.log('username/password wrong')
+    }
 }
 
 
