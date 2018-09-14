@@ -1,4 +1,3 @@
-//koneksi ke filesistem
 const fs = require('fs')
 
 class Employee {
@@ -10,19 +9,15 @@ class Employee {
     }
 
     addUser(userName, position, password,callBack){
-        
-        //read file JSON
         fs.readFile('./JSON/employees.json','utf8',(err,employeeStr)=>{
             if (err){
                 callBack(err)
             }
             else  {
                 var employeeArr=JSON.parse(employeeStr)
-                //buat objek Employeenya dulu, push ke array JSON
                 var employee = new Employee(userName, position, userName, password)
                 employeeArr.push(employee)
                 var employeeToStr=JSON.stringify(employeeArr)
-                //dari array, overwrite ke file json
                 fs.writeFile('./JSON/employees.json',employeeToStr, (err)=>{
                     if (err){
                         callBack(err)
@@ -36,28 +31,76 @@ class Employee {
     }
 
     login(userName,password,callBack){
-        //read file JSON, konversi ke array
+        //identitas login user sebelumnya langsung direplace oleh user yang login terbaru
         fs.readFile('./JSON/employees.json','utf8',(err,employeeStr)=>{
             if (err){
                 callBack(err)
             }
             else {
                 var employeeArr=JSON.parse(employeeStr)
-                //looping isi arraynya, gunakan teknik flagging
                 let isValidationSuccess=false
                 for (let i=0; i<employeeArr.length; i++){                  
                     if (employeeArr[i]['username']===userName && employeeArr[i]['password']===password){
-                        var validUserName = employeeArr[i]['username']
-                        isValidationSuccess=true
-                        break
+                        var loginArr=[]
+                        loginArr.push(employeeArr[i])
+                        var loginArrToStr = JSON.stringify(loginArr)
+                        fs.writeFile('./JSON/login.json',loginArrToStr, (err)=>{
+                            if (err){
+                                callBack(err)
+                            }
+                            else {
+                                var validUserName = employeeArr[i]['username']
+                                isValidationSuccess=true
+                                callBack(validUserName,isValidationSuccess)
+                            }
+                        })
                     }
                 }
-                callBack(validUserName,isValidationSuccess)
             }
         })
     }
-    
+
+    cekLogin(callBack){
+        let isUserLogin = false
+        fs.readFile('./JSON/login.json','utf8',(err,loginStr)=>{
+            if (err){
+                callBack(err)
+            }
+            else {
+                let loginArr=JSON.parse(loginStr)
+                if (loginArr.length===0){
+                    callBack(isUserLogin,null)
+                } 
+                else if (loginArr.length===1) {
+                    isUserLogin = true
+                    callBack(isUserLogin,loginArr[0]['position'])
+                }
+            }
+        })
+    }
+
+    checkOut(callBack){
+        fs.readFile('./JSON/login.json','utf8',(err,loginStr)=>{
+            if (err){
+                callBack(err)
+            }
+            else {
+                let loginArr=JSON.parse(loginStr)
+                loginArr=[]
+                let loginArrToStr=JSON.stringify(loginArr)
+                fs.writeFile('./JSON/login.json',loginArrToStr, (err)=>{
+                    if (err){
+                        callBack(err)
+                    }
+                    else {
+                        callBack('Anda telah berhasil logout')
+                    }
+                })
+            }
+        })
+
+    }
+
 }
 
 module.exports = Employee
-//match_data('../JSON/employees.json')

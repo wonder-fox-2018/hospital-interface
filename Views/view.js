@@ -10,6 +10,22 @@ class View {
     loginFailed(){
         console.log('username / password wrong')
     }
+
+    notDoctorPosition(){
+        console.log('tidak memiliki akses untuk add patients!')
+    }
+
+    notLoggedIn(){
+        console.log('silahkan login terlebih dahulu')
+    }
+
+    addPatient(totalPatient){
+        console.log(`data pasien berhasil ditambahkan. Total data pasien : ${totalPatient}`)
+    }
+
+    checkOut(result){
+        console.log(result)
+    }
 }
 
 module.exports = View
