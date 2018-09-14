@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "budi",
+    "diagnosis": "batuk pilek demam"
+  },
+  {
+    "id": 2,
+    "name": "yanti perut kembung masuk angin",
+    "diagnosis": "yanti perut kembung masuk angin"
+  },
+  {
+    "id": 3,
+    "name": "makmin",
+    "diagnosis": "perut kembung masuk angin"
+  },
+  {
+    "id": 4,
+    "name": "abdul",
+    "diagnosis": "perut kembung masuk angin"
+  },
+  {
+    "id": 5,
+    "name": "halloos",
+    "diagnosis": "dfdfdf"
+  },
+  {
+    "id": 6,
+    "name": "budiman",
+    "diagnosis": "dfdfdf"
+  }
+]
