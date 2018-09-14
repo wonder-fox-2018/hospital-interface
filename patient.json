@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "dodol",
+    "diagnosis": [
+      "batuk",
+      "flue",
+      "pilek"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "dodol",
+    "diagnosis": [
+      "batuk",
+      "flue",
+      "pilek"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "dodol",
+    "diagnosis": [
+      "batuk",
+      "flue",
+      "pilek"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "dodol",
+    "diagnosis": [
+      "batuk",
+      "flue",
+      "pilek"
+    ]
+  }
+]
