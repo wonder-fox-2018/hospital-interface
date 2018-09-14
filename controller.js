@@ -16,6 +16,12 @@ class Controller {
         });
     }
 
+    static login(username,password){
+        employes.login(username,password,(callback) => {
+            view.display(callback)
+        })
+    }
+
     
 }
 
