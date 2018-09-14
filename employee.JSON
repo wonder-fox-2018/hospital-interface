@@ -1,0 +1,20 @@
+[
+  {
+    "username": "agung",
+    "password": "pass123",
+    "position": "admin",
+    "login": false
+  },
+  {
+    "username": "Luffy",
+    "password": "pirates69",
+    "position": "dokter",
+    "login": false
+  },
+  {
+    "username": "adit",
+    "password": "123",
+    "position": "dokter",
+    "login": false
+  }
+]
