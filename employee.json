@@ -1,1 +1,6 @@
-[]
+[
+    {   "username": "sapi",
+        "password": "sapisuper",
+        "role": "dokter"
+    }
+]

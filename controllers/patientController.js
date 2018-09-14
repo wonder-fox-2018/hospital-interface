@@ -12,21 +12,10 @@ class ControllerPatient {
 
     }
 
-    // static register(username, password, role, callback) {
-    //     let newEmployee = new Employee (username, password, role)
-    //     let jsonEmploye = JSON.stringify(newEmployee)
-    //     fs.writeFile('../employee.json', jsonEmploye, (err) =>{
-    //         callback(typeof newEmployee)
-    //         // Employee.showList()
-    //     })
-    // }
+    static add() {
 
-    // static showList() {
-    //     fs.readFile('../employee.json', 'utf8', (err, dataJson) => {
-    //         let result = JSON.parse(dataJson);
-    //         View.showList(result)
-    //     });
-    // }
+    } 
+    
 }
 
 

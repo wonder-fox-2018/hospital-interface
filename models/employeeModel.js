@@ -10,7 +10,7 @@ class Employee {
   }
 
   static register(username, password, role, callback) {
-    fs.readFile('./employee.json', 'utf8', (err, dataJson) => {
+    fs.readFile('.../employee.json', 'utf8', (err, dataJson) => {
         let result = JSON.parse(dataJson);
         let newEmployee = new Employee (username, password, role)
         result.push(newEmployee)
@@ -29,13 +29,13 @@ class Employee {
           result.push(username, password)
           let jsonLogin = JSON.stringify(result)
           fs.write('../login.json', jsonLogin, (err) => {
-              callback('user budi logged in succerssfully')
+              callback(`user ${result.username} logged in succerssfully`)
           })
       })
     }
 
     static readFile(callback) {
-        fs.readFile('./employee.json', 'utf8', (err, dataJson) => {
+        fs.readFile('../employee.json', 'utf8', (err, dataJson) => {
             let result = JSON.parse(dataJson);
             callback(result)
           })
@@ -43,7 +43,7 @@ class Employee {
         
 
   static showList() {
-      
+      View.showList()
   }
 }
 
