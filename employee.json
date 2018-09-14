@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "hadinw",
+    "username": "hadinww",
+    "password": "123456",
+    "position": "doktor"
+  },
+  {
+    "id": 2,
+    "name": "messa",
+    "username": "messa",
+    "password": "123456",
+    "position": "doktor"
+  },
+  {
+    "id": 3,
+    "name": "newName",
+    "username": "usern",
+    "password": "pass",
+    "position": "newPos"
+  },
+  {
+    "id": 4,
+    "name": "sam",
+    "username": "sam",
+    "password": "123456",
+    "position": "admin"
+  },
+  {
+    "id": 5,
+    "name": "nama",
+    "username": "pass",
+    "password": "posit",
+    "position": "username"
+  }
+]

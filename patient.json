@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "andre",
+    "diagnosis": [
+      "batuk",
+      "pusing",
+      "pilek",
+      "demam"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "andre",
+    "diagnosis": [
+      "batuk",
+      "pusing",
+      "pilek",
+      "demam"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "andre",
+    "diagnosis": [
+      "batuk",
+      "pusing",
+      "pilek",
+      "demam"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "andre",
+    "diagnosis": [
+      "batuk",
+      "malas",
+      "panas",
+      "dingin"
+    ]
+  }
+]
