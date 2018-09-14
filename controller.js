@@ -22,6 +22,19 @@ class Controller {
         })
     }
 
+    static addPatient(name,diagnosed){
+        employes.permission((permission) => {
+            view.display(permission)
+            if(permission == true){
+                employes.addPatient(name,diagnosed,(callback) => {
+                    view.display(`data pasien berhasil ditambahkan. Total data pasien ${callback}`)
+                })
+            }else{
+                view.display(`tidak memiliki akses untuk add patient`)
+            }
+        })
+    }
+
     
 }
 

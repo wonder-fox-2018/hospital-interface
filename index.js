@@ -7,4 +7,6 @@ if(input[2] === 'showEmployes'){
     controller.addEmploye(input[3],input[4],input[5],input[6])
 }else if(input[2] === 'login'){
     controller.login(input[3],input[4])
+}else if(input[2] === 'addPatient'){
+    controller.addPatient(input[3],input[4])
 }

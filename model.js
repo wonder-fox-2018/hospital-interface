@@ -4,7 +4,7 @@ class Patient {
   constructor(id, name, diagnosis) {
     this.id = id
     this.name = name
-    this.diagnosis = diagnosis
+    this.diagnosed = diagnosis
   }
 }
 
@@ -59,6 +59,37 @@ class Employe {
       }
     }
   )};
+
+  static permission(callback){
+    fs.readFile('login.json','utf8',(err,dataString) => {
+      let login = JSON.parse(dataString);
+      let permission = false
+
+      for(let i = 0 ; i <= 1 ; i ++){ //looping abal abal
+        if(login.position === 'Doctor'){
+          permission = true
+        }
+      }
+      callback(permission);
+    });
+  };
+
+  static addPatient(name,diagnosed,callback){
+    fs.readFile('patients.json','utf8',(err,dataString) => {
+      let patients = JSON.parse(dataString);
+      let id = patients[patients.length - 1].id + 1
+      let patient = new Patient(id,name,diagnosed)
+      patients.push(patient)
+      let output = JSON.stringify(patients,null,2)
+      fs.writeFile('patients.json',output,'utf8',(err)=>{
+        if(err){
+          
+        }
+        callback(patients.length)
+      });
+    }); 
+  }
+
 
 };
 
