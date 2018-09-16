@@ -1,7 +1,7 @@
 const Employee = require('../models/employee')
 const View = require('../views/view')
 
-class Controller{
+class EmployeeController{
 
     static register(arrOfEmployeeData){
         Employee.read((err,data)=>{
@@ -18,7 +18,7 @@ class Controller{
                         let msg = `Save data success, username: ${newData.username}, Total Employee : ${data.length+1}`
                         View.print(msg)
                     } 
-                    else throw err
+                    else View.print('Register failed, unable to save data')
                 })
             }      
         })
@@ -27,8 +27,8 @@ class Controller{
     static findBy(key,value,callback){  //helper
         Employee.read((err,data)=>{
             if(!err){
-                let found = data.find(emplloyee=>{
-                    return emplloyee[key] == value
+                let found = data.find(employee=>{
+                    return employee[key] == value
                 })
                 callback(null,found)
             }
@@ -49,13 +49,17 @@ class Controller{
                       objEmployee.isLogin = false  
                     })
                     data[index].isLogin = true
-                    Employee.write(data)
-                    let msg = `User ${data[index].username} - ${data[index].position} logged in successfully`
-                    View.print(msg)    
+                    Employee.write(data,(err,saved)=>{
+                        if(err) View.print('saving data failed')
+                        else {
+                            let msg = `User ${data[index].username} - ${data[index].position} logged in successfully`
+                            View.print(msg)    
+                        }
+                    })
                 }
                 else View.print('wrong username / password')
             }
-            else throw err
+            else View.print('database connetion failed')
         })        
     }
 
@@ -67,17 +71,21 @@ class Controller{
                 })
                 if(index != -1){
                     data[index].isLogin = false
-                    Employee.write(data)
-                    let msg = `User ${data[index].username} logout successfully`
-                    View.print(msg)    
+                    Employee.write(data,(err,saved)=>{
+                        if(err) View.print('logout failed in saving')
+                        else {
+                            let msg = `User ${data[index].username} logout successfully`
+                            View.print(msg)    
+                        } 
+                    })
                 }
                 else View.print('nothing to logout')
             }
-            else throw err
+            else View.print('database connection failed')
         })   
     }
 
 }
 
 
-module.exports = Controller
+module.exports = EmployeeController

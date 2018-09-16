@@ -20,9 +20,9 @@ class Employee {
     }
 
     //write
-    static write(newdata){
+    static write(newdata,callback){
       fs.writeFile(databaseEmployee,JSON.stringify(newdata,null,2),'utf-8',(err)=>{
-        if(err) throw err
+        err ? callback(err,null) : callback(null,true) 
       })
     }
 
@@ -31,8 +31,10 @@ class Employee {
       this.read((err,data)=>{
         if(!err){
           data.push(newEmployeeObj)
-          this.write(data)
-          callback(null, newEmployeeObj)
+          this.write(data,(err,saved)=>{
+            if(err) callback(err,null)
+            else callback(null, newEmployeeObj)
+          })
         } 
         else 
           callback(err,null)

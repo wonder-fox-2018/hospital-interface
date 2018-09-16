@@ -15,6 +15,4 @@ switch (command) {
 
     case 'logout': controllersEmployee.logout(); break;
 
-    default: 
-    break;
 }
